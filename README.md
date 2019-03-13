@@ -1,4 +1,7 @@
-# Botkit Starter Kit for Slack Bots
+# Break's Over Bot
+
+## 
+
 
 This repo contains everything you need to get started building a Slack bot with [Botkit](https://botkit.ai).
 
