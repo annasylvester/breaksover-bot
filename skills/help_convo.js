@@ -16,9 +16,12 @@ module.exports = function(controller) {
         bot.startConversation(message, function(err, convo) {
             convo.say('Hey do you need help??');
 
-            convo.ask('Doyoujifwjaokef?', function(response, convo) {
+            convo.ask('', function(response, convo) {
 
+                axios.post 
+                
                 convo.say('Cool, I like ' + response.text + ' too!');
+
                 convo.next();
 
             });
