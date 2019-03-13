@@ -27,7 +27,7 @@ module.exports = function(controller) {
     webserver.set('view engine', 'hbs');
     webserver.set('views', __dirname + '/../views/');
 
-    webserver.use(express.static(__dirname + '/..public/'));
+    webserver.use(express.static(__dirname + '/../public/'));
 
     var server = http.createServer(webserver);
 
