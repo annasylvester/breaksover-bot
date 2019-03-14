@@ -3,17 +3,9 @@
 ## 
 
 
-This repo contains everything you need to get started building a Slack bot with [Botkit](https://botkit.ai).
+Break's Over Bot is a Slack Bot made alert students when break time is over.  Students often don't know when the break time was started.  While devouring lunch, time might slip on by...  Break's Over Bot will alert the student so they will never be late again.
 
-Botkit is designed to ease the process of designing and running useful, creative bots that live inside messaging platforms. Bots are applications that can send and receive messages, and in many cases, appear alongside their human counterparts as users.
-
-Some bots talk like people, others silently work in the background, while others present interfaces much like modern mobile applications. Botkit gives developers the necessary tools for building bots of any kind! It provides an easy-to-understand interface for sending and receiving messages so that developers can focus on creating novel applications and experiences instead of dealing with API endpoints.
-
-Our goal with Botkit is to make bot building easy, fun, and accessible to anyone with the desire to create a future filled with talking machines!
-
-If you are looking to create a bot on other platforms using Glitch, check out the [Botkit project page](https://glitch.com/botkit).
-
-### What's Included
+### What's Used
 * [Botkit core](https://botkit.ai/docs/core.html) - a complete programming system for building conversational software
 * [Pre-configured Express.js webserver](https://expressjs.com/) including:
    * A customizable "Install my Bot" homepage
@@ -23,7 +15,7 @@ If you are looking to create a bot on other platforms using Glitch, check out th
 
 ### Getting Started
 
-There are a myriad of methods you can use to set up an application on Slack, here are some of your options:
+Break's Over is Open Source so if you ever want to 
 
 #### Install Botkit
 
