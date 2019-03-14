@@ -17,8 +17,6 @@ module.exports = function(controller) {
             convo.say('Hey do you need help??');
 
             convo.ask('', function(response, convo) {
-
-                axios.post 
                 
                 convo.say('Cool, I like ' + response.text + ' too!');
 
