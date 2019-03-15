@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Monkey Minigame!</title>
+    <style type="text/css">
+        body {
+            background-color: #FFF;
+            margin: 30px;
+            margin-top: 10px;
+        }
+
+        #gameContainer {
+            width: 642px;
+            height: 400px;
+            border: 4px black solid;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            background-image: url("./images/leavesbackground.jpg");
+            background-size: contain;
+        }
+
+        #startScreen {
+            width: 642px;
+            height: 400px;
+            border: 4px black solid;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            background-image: url("./images/gamestartscreen.jpg");
+            background-size: contain;
+        }
+
+        #myMonkey {
+            height: 100px;
+            position: relative;
+            left: 50px;
+            top: 50px;
+            transition: left .5s ease-in, top .5s ease-in;
+        }
+
+        #banana {
+            height: 60px;
+            position: relative;
+            left: 150px;
+            top: 80ps;
+        }
+
+        #scoreContainer {
+            position: absolute;
+            bottom: 2%;
+            right: 2%;
+            background-color: #3FA9F5;
+            padding: 5px 10px 5px 10px;
+            border-radius: 10px;
+        }
+
+        #startButton {
+            position: absolute;
+            background-color: #3FA9F5;
+            font-size: 14pt;
+            border: none;
+            padding: 5px 10px 5px 10px;
+            border-radius: 10px;
+            bottom: 20%;
+            right: 45%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="startScreen">
+        <input id="startButton" type="button" value="START" />
+    </div>
+
+    <div id="gameContainer" style="display: none;">
+        <img id="myMonkey" src="./images/monkey.png">
+        <div id="scoreContainer">
+
+            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 12pt; float: left; margin-right: 10px;">Bananas
+                eaten: </span>
+            <p id="score" style="font-family: Arial, Helvetica, sans-serif; font-size: 12pt; float: left; padding: 0; margin: 0;">0</p>
+        </div>
+        <img id="banana" src="./images/banana.png"></img><span></span>
+    </div>
+
+    <script>
+        $("#startButton").click(function () {
+            $("#startScreen").hide();
+            $("#gameContainer").show();
+            startGame();
+        })
+
+        function startGame() {
+            // Elements
+            let myMonkey = document.querySelector("#myMonkey");
+            let container = document.querySelector("#gameContainer");
+            let banana = document.querySelector("#banana")
+            let score = 0;
+
+            // Initial spawn of banana
+            spawnBanana();
+
+            container.addEventListener("click", getClickPosition, false);
+
+           
+
+            // Moves monkey
+            function getClickPosition(e) {
+                $('#myMonkey').attr('src','./images/monkeyeating.png');
+
+                let parentPosition = getPosition(e.currentTarget);
+                let xPosition = e.clientX - parentPosition.x - (myMonkey.clientWidth / 2);
+                let yPosition = e.clientY - parentPosition.y - (myMonkey.clientHeight / 2);
+
+                myMonkey.style.left = xPosition + "px";
+                myMonkey.style.top = yPosition + "px";
+
+                const rect1 = myMonkey.getBoundingClientRect();
+                const rect2 = banana.getBoundingClientRect();
+
+                var overlap = !(rect1.right < rect2.left ||
+                    rect1.left > rect2.right ||
+                    rect1.bottom < rect2.top ||
+                    rect1.top > rect2.bottom);
+
+
+                if (overlap === true) {
+                    updateScore();
+                    spawnBanana();
+                }
+            }
+
+            function updateScore() {
+                score++;
+                $("#score").text(score);
+                $('#myMonkey').attr('src','./images/monkey.png');
+
+
+            }
+
+            // Spawn Banana
+            function spawnBanana() {
+                let stageWidth = 642;
+                let stageHeight = 400;
+                let monkeyWidth = 120;
+                let monkeyHeight = 100;
+
+
+                // Generate a random x position.
+                let randomXPosition = Math.floor(Math.random() * (stageWidth - monkeyWidth)) + 1;
+
+                // Generate a random y position.
+                let randomYPosition = Math.floor(Math.random() * (stageHeight - monkeyHeight)) + 1;
+
+                //Create a new Enemy instance and use above coordinates to place it in a random spot.
+                //Fill the rest of this object like you did with let bullet = {...}.
+
+                let bananaXPosition = randomXPosition;
+                let bananaYPosition = randomYPosition;
+
+
+                // Push your new enemy in the enemies array so you can render them all at once in the draw loop.
+                banana.style.left = bananaXPosition + "px";
+                banana.style.top = bananaYPosition + "px";
+
+            }
+
+            // Helper function to get an element's exact position
+            function getPosition(el) {
+                let xPos = 0;
+                let yPos = 0;
+
+                while (el) {
+                    if (el.tagName == "BODY") {
+                        // deal with browser quirks with body/window/document and page scroll
+                        let xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+                        let yScroll = el.scrollTop || document.documentElement.scrollTop;
+
+                        xPos += (el.offsetLeft - xScroll + el.clientLeft);
+                        yPos += (el.offsetTop - yScroll + el.clientTop);
+                    } else {
+                        // for all other non-BODY elements
+                        xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+                        yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+                    }
+
+                    el = el.offsetParent;
+                }
+                return {
+                    x: xPos,
+                    y: yPos
+                };
+            }
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
