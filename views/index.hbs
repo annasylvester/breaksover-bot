@@ -1,33 +1,41 @@
 <!-- Nav Bar -->
 <nav class="topNavMonkey" role="navigation" style="background-color: white">
-  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo" style="color: black">Logo</a>
+  <div class="nav-wrapper container">
+    {{!-- <a id="logo-container" class="brand-logo center">
+    <img src="/images/monkeyhead.png" style="width: 20%; mar">
+    </a> --}}
     <ul class="right hide-on-med-and-down">
-      <li><a href="#" style="color: black">Navbar Link</a></li>
+      <li><a href="#" style="color: black">About</a></li>
+      <li><a href="#" style="color: black">Privacy</a></li>
+      <li><a href="#" style="color: black">Support</a></li>
+
     </ul>
 
     <ul id="nav-mobile" class="sidenav">
-      <li><a href="#">Navbar Link</a></li>
+      <li><a href="#">Support</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Privacy</a></li>
     </ul>
-    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons" style="color: black">menu</i></a>
   </div>
 </nav>
 
 <!-- Jumbotron w title -->
-<div class="titleJumbo" style="position: relative">
+<div class="titleJumbo" style="position: relative; margin-bottom: 6%;">
   <img src="/images/monkeytitle.jpg" style="width: 100%;">
   <a id="addToSlack"
     style="position: absolute; top: 75%; left: 50%;  transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%);"
-    href="/login"><img alt="Add to Slack" height="40" width="139"
+    href="/login" target="_blank"><img alt="Add to Slack" height="40" width="139"
       src="https://platform.slack-edge.com/img/add_to_slack.png"
       srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
 </div>
 
 <!-- Game Section -->
-<div class="monkeyGame" style="width: 100%; height: 300px; background-color: white">
-  <div class="center">
-    <div style="color: black">Click to start game!</div>
-    <div style=" color: black">move monkey with arrow keys</div>
-  </div>
+<div class="monkeyGameBanner" style="width: 100%; height: 80px; margin-bottom: 5%; background-color: #FFFF00;">
+  <a href="/minigame.html" target="_blank">
+    <img border="0" alt="minigame" src="/images/minigamebutton.png"
+      style="position: relative; width: 20%; left: 50%; top: 50%; transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%);">
+  </a>
 </div>
 
 
@@ -37,34 +45,41 @@
     <div class="row">
       <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center" style="color: #FFFF00"><i class="material-icons">flash_on</i></h2>
-          <h5 class="center">Speeds up development</h5>
+          <h2 class="center" style="color: #FFFF00"><img src="/images/monkeyheartglasses.png" style="width: 70%"></h2>
+          <h5 class="center">How It Works</h5>
 
-          <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate
-            our custom components. Additionally, we refined animations and transitions to provide a smoother
-            experience for developers.</p>
+          <p class="light">To get started, all you do is hit that nifty little “Add to Slack” button and authorize
+            Break’sOver to one of your Slack Channels. After that, you’re in! Using simple commands, you can set a timer
+            in a general channel to give everyone (who is in that channel) a personal DM when they have 10 minutes left.
+            Need help? Need the commands listed out? Just type “@Break’sOver help”.
+          </p>
         </div>
       </div>
 
       <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center" style="color: #FFFF00"><i class="material-icons">group</i></h2>
-          <h5 class="center">User Experience Focused</h5>
+          <h2 class="center" style="color: #FFFF00"><img src="/images/monkeyglasses.png" style="width: 70%"></h2>
+          <h5 class="center">Technology Used</h5>
 
-          <p class="light">By utilizing elements and principles of Material Design, we were able to create a
-            framework that incorporates components and animations that provide more feedback to users. Additionally,
-            a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+          <p class="light">We started our bot coding adventure with Botkit! Botkit comes set up with MongoDB which is
+            great but we wanted to use MySQL with a Sequelize ORM. Personal preference and all that. Hitting the Slack
+            Events API is how we got the functionality working. For front end design, Materialize CSS Framework paired
+            with Adobe Illustrator had everything we needed!
+          </p>
         </div>
       </div>
 
       <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center" style="color: #FFFF00;"><i class="material-icons">settings</i></h2>
-          <h5 class="center">Easy to work with</h5>
+          <h2 class="center" style="color: #FFFF00"><img src="/images/monkeysunglasses.png"
+              style="width: 70%; padding-top: 3%;"></h2>
+          <h5 class="center">Future Plans</h5>
 
-          <p class="light">We have provided detailed documentation as well as specific code examples to help new
-            users get started. We are also always open to feedback and can answer any questions a user may have about
-            Materialize.</p>
+          <p class="light">Break’sOver is still a work in progress! Isn't everything. Some plans we have in the future
+            include users being able to change the notification time instead of it always being 10 minutes out. We also
+            have thought about expanding to sending any kind of timed message, not just a reminder. You could
+            potentially use it just like you use the Reminders App in your phone.
+          </p>
         </div>
       </div>
     </div>
@@ -115,3 +130,6 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/materialize/js/materialize.js"></script>
 <script src="/materialize/js/init.js"></script>
+<script>
+
+</script>
