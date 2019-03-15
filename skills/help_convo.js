@@ -1,5 +1,6 @@
 module.exports = function(controller) {
 
+    //command to bring up command options for the bot
     controller.hears(['help'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.startConversation(message, function(err, convo) {

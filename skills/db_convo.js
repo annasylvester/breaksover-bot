@@ -2,6 +2,7 @@ const db = require("../models");
 
 module.exports = function (controller) {
 
+    //command to grab all the users in the database that matches the current channel
     controller.hears(['listuser'], 'direct_message,direct_mention', function (bot, message) {
 
         bot.startConversation(message, function (err, convo) {
@@ -21,6 +22,7 @@ module.exports = function (controller) {
 
     });
 
+    //command to add an user to the database with their current channel and channel specific ID
     controller.hears(['adduser'], 'direct_message,direct_mention', function (bot, message) {
 
         bot.startConversation(message, function (err, convo) {
@@ -52,6 +54,7 @@ module.exports = function (controller) {
 
     });
 
+    //command to remove an user from the database
     controller.hears(['deleteuser'], 'direct_message,direct_mention', function (bot, message) {
 
         bot.startConversation(message, function (err, convo) {
@@ -82,6 +85,7 @@ module.exports = function (controller) {
 
     });
 
+    //function to generate a string based on the return from findAll
     function generateUserList(userData) {
 
         let text = '';
