@@ -1,15 +1,24 @@
+/*
+
+WHAT IS THIS?
+
+This module demonstrates simple uses of Botkit's conversation system.
+
+In this example, Botkit hears a keyword, then asks a question. Different paths
+through the conversation are chosen based on the user's response.
+
+*/
+
 module.exports = function(controller) {
 
-    controller.hears(['help'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['color'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.startConversation(message, function(err, convo) {
-<<<<<<< HEAD
-            convo.say('Hey do you need help??');
+            convo.say('This is an example of using convo.ask with a single callback.');
 
-            convo.ask('', function(response, convo) {
-                
+            convo.ask('What is your favorite color, dude?', function(response, convo) {
+
                 convo.say('Cool, I like ' + response.text + ' too!');
-
                 convo.next();
 
             });
@@ -76,12 +85,6 @@ module.exports = function(controller) {
                 }
 
             });
-=======
-            
-            convo.say('Hey do you need help??\nThe list of commands you can use are:\nadduser, listuser, deleteuser, timerstart, timerstop');
-            convo.next();
-            
->>>>>>> d30a9b7a362ed6b7009913ae3d93aab9ef9043dd
         });
 
     });
