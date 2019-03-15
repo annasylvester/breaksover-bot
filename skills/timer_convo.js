@@ -4,6 +4,7 @@ module.exports = function (controller) {
 
     let timerId;
 
+    //command to start timer for all users in the database in the current channel
     controller.hears(['timerstart'], 'direct_message,direct_mention', function (bot, message) {
 
         bot.startConversation(message, function (err, convo) {
@@ -62,6 +63,7 @@ module.exports = function (controller) {
 
     });
 
+    //command to cancel the timer that is running
     controller.hears(['timerstop'], 'direct_message,direct_mention', function (bot, message) {
 
         bot.startConversation(message, function (err, convo) {
