@@ -1,44 +1,61 @@
 <!doctype html>
-<html>
-    <head>
-        <title>My Botkit Bot</title>
-        <link rel="stylesheet" href="/styles.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<html style="background-color: #3FA9F5;">
 
-        <script>
+<head>
+    <title>Yay!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-            function getCookie(name) {
-              var value = "; " + document.cookie;
-              var parts = value.split("; " + name + "=");
-              if (parts.length == 2) return parts.pop().split(";").shift();
+    <script>
+        function getCookie(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+        }
+
+        function generateSlackLink() {
+
+            var team_id = getCookie('team_id');
+            var bot_id = getCookie('bot_user_id');
+
+            if (team_id && bot_id) {
+                var url = 'slack://user?team=' + team_id + '&id=' + bot_id;
+                $('#slack_link').attr('href', url);
             }
 
-            function generateSlackLink() {
 
-                var team_id = getCookie('team_id');
-                var bot_id = getCookie('bot_user_id');
+        }
 
-                if (team_id && bot_id) {
-                    var url = 'slack://user?team=' + team_id + '&id=' + bot_id;
-                    $('#slack_link').attr('href',url);
-                }
+        $(function () {
+            generateSlackLink();
+        });
+    </script>
 
 
-            }
+</head>
 
-            $(function() {
-                generateSlackLink();
-            });
-
-        </script>
-
-
-    </head>
-    <body>
-        <div class="wrapper">
-            <div>
-                <h1>Success! <a href="slack://open" id="slack_link">Your new bot is waiting!</a></h1>
+<body style="background-color: #3FA9F5;">
+    <div class="wrapper">
+        <div class="row center">
+            <div class="col s0 m3 l3"></div>
+            <div class="col s12 m6 l6">
+                <div class="card blue-grey darken-1" style="margin-top: 10%;">
+                    <div class="card-content white-text">
+                        <span class="card-title">Success!</span>
+                        <p>Now let's head over to Slack.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="slack://open" id="slack_link" style="color: #FFFF00">Go to Slack</a>
+                    </div>
+                </div>
+                <img style="width: 40%; margin-top: -55px" src="./images/monkeyhanginghappy.png">
             </div>
+            <div class="col s0 m3 l3"></div>
         </div>
-    </body>
+    </div>
+
+</body>
+
 </html>

@@ -1,16 +1,34 @@
 <!doctype html>
-<html>
-    <head>
-        <title>My Botkit Bot</title>
-        <link rel="stylesheet" href="/styles.css" />
-    </head>
-    <body>
-        <div class="wrapper">
-            <div>
-                <h1>Oops! Something went awry during your login.</h1>
+<html style="background-color: #3FA9F5;">
 
-                <p><a href="/login">Login again</a></p>
+<head>
+    <title>Oops!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="/styles.css" />
+
+</head>
+
+<body style="background-color: #3FA9F5">
+    <div class="wrapper">
+        <div class="row center">
+            <div class="col s0 m3 l3"></div>
+            <div class="col s12 m6 l6">
+                <div class="card blue-grey darken-1" style="margin-top: 10%;">
+                    <div class="card-content white-text">
+                        <span class="card-title">Oops!</span>
+                        <p>Something went wrong when you tried to log in.</p>
+                    </div>
+                    <div class="card-action">
+                        <a style="color: #FFFF00" href="/login">Login again</a>
+                    </div>
+                </div>
+                <img style="width: 40%; margin-top: -55px" src="./images/monkeyhangingcringe.png">
             </div>
+            <div class="col s0 m3 l3"></div>
         </div>
-    </body>
+    </div>
+
+</body>
+
 </html>
